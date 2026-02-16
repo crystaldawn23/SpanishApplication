@@ -1,0 +1,27 @@
+body { background: #00050a; color: #00d4ff; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+
+#game-ui { width: 380px; background: rgba(0, 20, 40, 0.9); border: 2px solid #00d4ff; padding: 30px; border-radius: 5px; position: relative; box-shadow: 0 0 20px #00d4ff; }
+
+.scanner-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: rgba(0, 212, 255, 0.5); animation: scan 3s linear infinite; }
+
+@keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+
+.vault-header { font-size: 0.7rem; letter-spacing: 4px; border-bottom: 1px solid #00d4ff; padding-bottom: 5px; margin-bottom: 20px; }
+
+#profile-card { background: #001a33; border: 1px solid #00d4ff; padding: 20px; margin-bottom: 20px; text-align: center; }
+
+.label { font-size: 0.8rem; margin: 0; opacity: 0.7; }
+
+#subject-text { font-size: 3.5rem; margin: 10px 0; color: #fff; text-shadow: 0 0 10px #00d4ff; }
+
+#context-hint { font-size: 0.9rem; font-style: italic; color: #4ecca3; }
+
+#options-grid { display: grid; gap: 10px; }
+
+.vault-btn { background: transparent; border: 1px solid #00d4ff; color: #00d4ff; padding: 15px; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: 0.2s; }
+
+.vault-btn:hover { background: #00d4ff; color: #000; }
+
+#security-bar { width: 100%; height: 10px; background: #001a33; margin-top: 30px; border: 1px solid #00d4ff; }
+
+#progress { width: 0%; height: 100%; background: #00d4ff; transition: width 0.3s; }

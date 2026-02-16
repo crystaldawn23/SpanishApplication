@@ -1,0 +1,61 @@
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background-color: #334155; color: white; border: none;
+    padding: 10px 15px; border-radius: 8px; cursor: pointer;
+    font-weight: bold;
+}
+
+#game-container {
+    margin-top: 80px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+#order-card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 20px;
+    border: 3px solid #10b981; /* Restaurant Green */
+    margin-bottom: 25px;
+}
+
+#customer-icon { font-size: 4rem; }
+
+#order-text {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.verb-btn {
+    background-color: #059669;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 4px solid #064e3b;
+    text-transform: uppercase;
+}
+
+.verb-btn:hover { background-color: #10b981; }
+.verb-btn:active { transform: translateY(2px); border-bottom: none; }
+
+.score-box { color: #10b981; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; }

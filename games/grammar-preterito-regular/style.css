@@ -1,0 +1,66 @@
+body {
+    background-color: #020617;
+    color: #4ade80; /* Matrix/Sci-fi Green */
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #1e293b; color: #4ade80; border: 1px solid #4ade80;
+    padding: 10px; cursor: pointer;
+}
+
+#time-machine {
+    margin-top: 50px;
+    width: 600px;
+    background: #0f172a;
+    border: 5px solid #334155;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.2);
+}
+
+#display-screens {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.screen {
+    background: #020617;
+    border: 2px solid #4ade80;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.screen label { font-size: 0.7rem; display: block; margin-bottom: 10px; opacity: 0.7; }
+
+#time-warp { font-size: 3rem; animation: spin 2s linear infinite; }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+#ending-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.code-btn {
+    background: #1e293b;
+    border: 2px solid #334155;
+    color: #4ade80;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.code-btn:hover { background: #4ade80; color: #020617; }
+
+#target { color: #facc15; text-decoration: underline; }

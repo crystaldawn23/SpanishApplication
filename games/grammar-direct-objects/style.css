@@ -1,0 +1,78 @@
+body {
+    background-color: #020617;
+    color: #38bdf8;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #1e293b; color: white; border: 1px solid #38bdf8;
+    padding: 10px; border-radius: 5px; cursor: pointer;
+}
+
+#game-container {
+    margin-top: 80px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+#circuit-board {
+    background: #0f172a;
+    padding: 30px;
+    border: 3px solid #1e293b;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.wire {
+    width: 100%;
+    padding: 15px;
+    background: #1e293b;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+#original-sentence span {
+    color: #fbbf24;
+    text-decoration: underline;
+}
+
+#bridge { font-size: 2rem; color: #fbbf24; }
+
+#drop-zone {
+    color: #fbbf24;
+    border-bottom: 2px dashed #fbbf24;
+    padding: 0 10px;
+}
+
+#pronoun-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.chip {
+    background: #0f172a;
+    color: #38bdf8;
+    border: 2px solid #38bdf8;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.chip:hover {
+    background: #38bdf8;
+    color: #0f172a;
+    box-shadow: 0 0 15px #38bdf8;
+}

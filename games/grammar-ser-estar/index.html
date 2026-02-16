@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verb Duel: Ser vs Estar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="duel-stage">
+        <div id="sentence-box">
+            <p id="prompt-text">LOADING DUEL...</p>
+        </div>
+
+        <div id="character-area">
+            <div id="player-char" class="char">👤</div>
+        </div>
+
+        <div id="paddle-container">
+            <button class="paddle ser" onclick="attack('ser')">SER</button>
+            <button class="paddle estar" onclick="attack('estar')">ESTAR</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+body {
+    background-color: #0f172a; /* Matches your Hub */
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #334155;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#game-ui {
+    margin-top: 60px;
+    text-align: center;
+    width: 600px;
+}
+
+.bubble {
+    background: white;
+    color: #1e293b;
+    padding: 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 3px solid #38bdf8;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.score-board {
+    color: #38bdf8;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#stage {
+    border: 4px solid #334155;
+    background-color: #157e1a; /* Your "Emerald Green" */
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.instructions {
+    margin-top: 15px;
+    color: #94a3b8;
+    text-align: center;
+    font-size: 0.9rem;
+}

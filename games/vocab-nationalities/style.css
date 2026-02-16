@@ -1,0 +1,57 @@
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background-color: #334155; color: white; border: none;
+    padding: 10px 15px; border-radius: 8px; cursor: pointer;
+    font-weight: bold;
+}
+
+#game-container {
+    margin-top: 60px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+#passport-card {
+    background: #f8fafc;
+    color: #1e293b;
+    padding: 25px;
+    border-radius: 10px;
+    border: 4px solid #38bdf8;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 0 #334155;
+}
+
+#flag-display { font-size: 4rem; }
+
+#stamp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stamp-btn {
+    background-color: #157e1a;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 4px solid #065f46;
+    text-transform: uppercase;
+}
+
+.stamp-btn:hover { background-color: #059669; }
+.stamp-btn:active { transform: translateY(2px); border-bottom: none; }
+
+.score-box { color: #38bdf8; font-weight: bold; margin-bottom: 10px; }

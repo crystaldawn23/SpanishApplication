@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Paparazzi: Presente Progresivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="camera-overlay">
+        <div class="viewfinder corners"></div>
+        <div id="mission-brief">
+            <p>OBJETIVO:</p>
+            <h2 id="target-action">Cargando...</h2>
+        </div>
+        
+        <div id="photo-canvas">
+            </div>
+
+        <div id="camera-controls">
+            <div class="shutter-btn" id="snap-btn">📸 CAPTURAR</div>
+            <div class="score-display">FOTOS: <span id="score">0</span></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

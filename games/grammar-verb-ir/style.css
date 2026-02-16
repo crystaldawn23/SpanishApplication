@@ -1,0 +1,63 @@
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background-color: #334155; color: white; border: none;
+    padding: 10px 15px; border-radius: 8px; cursor: pointer;
+    font-weight: bold;
+}
+
+#game-container {
+    margin-top: 80px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+#travel-card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 20px;
+    border: 3px solid #fbbf24; /* Sunset Yellow */
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2);
+}
+
+#agent-icon { font-size: 4rem; margin-bottom: 10px; }
+
+#quest-text {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f8fafc;
+}
+
+#option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.route-btn {
+    background-color: #3b82f6; /* Travel Blue */
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 5px solid #1d4ed8;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.route-btn:hover { background-color: #2563eb; }
+.route-btn:active { transform: translateY(3px); border-bottom: none; }
+
+.score-box { color: #fbbf24; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; }

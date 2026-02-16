@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Prize Counter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-ui">
+        <div class="machine-top">PRIZE COUNTER</div>
+        
+        <div id="prize-display">
+            <div id="prize-item">🎁</div>
+            <div class="price-tag">
+                <span id="price-word">diez</span>
+            </div>
+        </div>
+
+        <div class="keypad-label">ENTER COINS:</div>
+        <div id="number-input">0</div>
+        
+        <div id="keypad">
+            </div>
+        
+        <div class="action-buttons">
+            <button id="clear-btn" onclick="clearInput()">CLEAR</button>
+            <button id="buy-btn" onclick="checkPrice()">BUY</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

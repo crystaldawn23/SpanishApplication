@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Millionaire Mint</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="mint-machine">
+        <div class="header">CURRENCY PRINTER</div>
+        
+        <div id="check-display">
+            <p>Páguese a la orden de: <span>EL ESTUDIANTE</span></p>
+            <div id="word-amount">Cargando . . . .</div>
+            <div id="amount-box">$ <span id="user-total">0</span></div>
+        </div>
+
+        <div id="numpad">
+            <button onclick="addDigit(1)">1</button><button onclick="addDigit(2)">2</button><button onclick="addDigit(3)">3</button>
+            <button onclick="addDigit(4)">4</button><button onclick="addDigit(5)">5</button><button onclick="addDigit(6)">6</button>
+            <button onclick="addDigit(7)">7</button><button onclick="addDigit(8)">8</button><button onclick="addDigit(9)">9</button>
+            <button class="clear" onclick="reset()">RESET</button><button onclick="addDigit(0)">0</button><button class="print" onclick="verify()">PRINT</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verb Crank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="crank-container">
+        <h2>CONJUGATION CRANK</h2>
+        <p id="target">Target: WE EAT (Comer)</p>
+        <div class="crank-row">
+            <button class="arrow" onclick="change(0, -1)">▲</button>
+            <button class="arrow" onclick="change(1, -1)">▲</button>
+            <button class="arrow" onclick="change(2, -1)">▲</button>
+        </div>
+        <div class="display-row">
+            <div class="slot" id="slot-0">Yo</div>
+            <div class="slot" id="slot-1">com</div>
+            <div class="slot" id="slot-2">o</div>
+        </div>
+        <div class="crank-row">
+            <button class="arrow" onclick="change(0, 1)">▼</button>
+            <button class="arrow" onclick="change(1, 1)">▼</button>
+            <button class="arrow" onclick="change(2, 1)">▼</button>
+        </div>
+        <button id="check-btn" onclick="check()">CHECK CONJUGATION</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

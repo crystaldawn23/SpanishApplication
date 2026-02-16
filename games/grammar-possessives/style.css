@@ -1,0 +1,20 @@
+body { background: #1e293b; color: white; font-family: sans-serif; text-align: center; }
+#drop-zones { display: flex; justify-content: center; gap: 40px; margin-top: 50px; }
+
+.zone { 
+    width: 150px; height: 150px; border: 4px dashed #38bdf8; 
+    border-radius: 15px; display: flex; flex-direction: column; 
+    justify-content: center; align-items: center; 
+}
+
+#item-bin { 
+    margin-top: 50px; display: flex; justify-content: center; 
+    gap: 20px; padding: 20px; background: #334155; border-radius: 10px;
+}
+
+.gift { 
+    background: #f59e0b; color: #1e293b; padding: 15px; 
+    border-radius: 8px; cursor: grab; font-weight: bold; 
+}
+
+.gift:active { cursor: grabbing; }

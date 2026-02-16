@@ -1,0 +1,110 @@
+/* ROOT STYLES */
+body {
+    background-color: #0f172a; /* Deep dark blue/black */
+    color: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+#arcade-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-bottom: 3px solid #334155;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #38bdf8; /* Bright arcade blue */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+header p {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* UNIT BOXES */
+.unit-box {
+    background-color: #1e293b;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    border: 1px solid #334155;
+}
+
+h2 {
+    color: #f1f5f9;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-left: 5px solid #38bdf8;
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+
+h2.locked {
+    border-left-color: #475569;
+    color: #64748b;
+}
+
+/* THE GRID SYSTEM */
+.button-grid {
+    display: grid;
+    /* This creates as many columns as will fit, at least 200px wide each */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+/* THE BUTTONS */
+button {
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+/* Active Level Button */
+.active-btn {
+    background-color: #530672; /* Emerald Green */
+    color: white;
+    border-bottom: 4px solid #059669; /* Darker green "3D" edge */
+}
+
+.active-btn:hover {
+    background-color: #059669;
+    transform: translateY(-2px); /* Lifts up slightly on hover */
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+.active-btn:active {
+    transform: translateY(2px); /* Sinks down when clicked */
+    border-bottom-width: 0;
+}
+
+/* Locked/Soon Button */
+.locked-btn {
+    background-color: #334155;
+    color: #64748b;
+    cursor: not-allowed;
+    border-bottom: 4px solid #1e293b;
+}

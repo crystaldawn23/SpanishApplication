@@ -1,0 +1,12 @@
+body { background: #fdf2f8; color: #831843; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+#boutique-container { background: white; padding: 30px; border-radius: 20px; border: 4px solid #f472b6; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+#stage { display: flex; gap: 40px; margin-top: 20px; }
+#mannequin { width: 150px; height: 350px; background: #f3f4f6; border: 2px solid #d1d5db; position: relative; border-radius: 10px; }
+.drop-zone { position: absolute; width: 100%; height: 60px; border: 1px dashed #d1d5db; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #9ca3af; }
+#zone-head { top: 0; }
+#zone-torso { top: 80px; }
+#zone-legs { top: 180px; }
+#zone-feet { bottom: 0; }
+#closet { display: flex; flex-direction: column; gap: 10px; }
+.item { background: #f472b6; color: white; padding: 15px; border-radius: 8px; cursor: grab; font-weight: bold; border-bottom: 3px solid #be185d; }
+.matched { background: #10b981 !important; border-bottom: none !important; color: white !important; cursor: default; }

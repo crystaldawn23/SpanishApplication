@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stem Change Slots</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="slot-machine">
+        <div id="display-window">
+            <span id="pronoun">Yo</span>
+            <span id="stem-part">qu<span id="change">e</span>r</span>
+            <span id="ending">o</span>
+        </div>
+        
+        <p id="instruction">Does the "E" need to change for this person?</p>
+        
+        <div id="controls">
+            <button class="toggle-btn" onclick="toggleStem()">SWITCH E / IE</button>
+            <button class="lever-btn" onclick="checkAnswer()">PULL LEVER</button>
+        </div>
+
+        <div id="status-bar">Round: 1 / 5</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

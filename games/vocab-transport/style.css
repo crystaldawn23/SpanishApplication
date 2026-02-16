@@ -1,0 +1,7 @@
+body { background: #1f2937; color: white; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+#vending-machine { background: #374151; padding: 20px; border: 6px solid #9ca3af; border-radius: 10px; width: 300px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+#screen { background: #064e3b; color: #4ade80; padding: 20px; text-align: center; border-radius: 5px; margin-bottom: 20px; }
+#transport-icon { font-size: 4rem; margin-top: 10px; }
+#keypad { display: grid; grid-template-columns: 1fr; gap: 10px; }
+button { background: #4b5563; color: white; border: none; padding: 10px; border-radius: 4px; font-weight: bold; cursor: pointer; border-bottom: 4px solid #1f2937; }
+button:active { border-bottom: none; transform: translateY(4px); }

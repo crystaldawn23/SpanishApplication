@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Detective</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="detective-box">
+        <div id="clue-folder">
+            <h3>ORDEN DE BÚSQUEDA:</h3>
+            <p id="description-text">Busco a una persona con... <br><strong>pelo castaño y ojos verdes.</strong></p>
+        </div>
+
+        <div id="carousel">
+            <button class="nav-btn" onclick="changeCard(-1)">❮</button>
+            <div id="card-display">
+                <div id="character-emoji">👤</div>
+                <div id="character-features">???</div>
+            </div>
+            <button class="nav-btn" onclick="changeCard(1)">❯</button>
+        </div>
+
+        <button id="select-btn" onclick="verifyMatch()">IDENTIFY TARGET</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

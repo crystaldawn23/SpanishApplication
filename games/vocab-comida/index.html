@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="customer-order">
+            <p>"Quiero <strong>un café</strong> y <strong>un pan dulce</strong>, por favor."</p>
+        </div>
+        
+        <div id="tray" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>DRAG ORDER HERE</p>
+        </div>
+
+        <div id="menu-items">
+            <div class="food" id="item-cafe" draggable="true" ondragstart="drag(event)" data-name="un café">☕ Café</div>
+            <div class="food" id="item-pan" draggable="true" ondragstart="drag(event)" data-name="un pan dulce">🥐 Pan Dulce</div>
+            <div class="food" id="item-jugo" draggable="true" ondragstart="drag(event)" data-name="un jugo">🧃 Jugo</div>
+            <div class="food" id="item-sopa" draggable="true" ondragstart="drag(event)" data-name="una sopa">🥣 Sopa</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

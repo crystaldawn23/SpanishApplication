@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Noun Gender Sorter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-ui">
+        <div class="sorting-header">ARTICLE ASSIGNMENT</div>
+        
+        <div id="word-conveyor">
+            <h1 id="target-noun">Loading...</h1>
+        </div>
+
+        <div class="instruction">CHOOSE THE CORRECT ARTICLE:</div>
+        
+        <div id="options-grid">
+            <button class="article-btn" onclick="checkArticle('el')">EL<br><small>(Masculine)</small></button>
+            <button class="article-btn" onclick="checkArticle('la')">LA<br><small>(Feminine)</small></button>
+            <button class="article-btn" onclick="checkArticle('los')">LOS<br><small>(Masc. Plural)</small></button>
+            <button class="article-btn" onclick="checkArticle('las')">LAS<br><small>(Fem. Plural)</small></button>
+        </div>
+
+        <div id="status-light"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

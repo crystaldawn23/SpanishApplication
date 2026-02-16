@@ -1,0 +1,17 @@
+body { background: #064e3b; color: #ecfdf5; font-family: 'Georgia', serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+
+#mint-machine { width: 450px; background: #065f46; padding: 20px; border-radius: 5px; border: 10px solid #047857; box-shadow: 20px 20px 0px #022c22; }
+
+#check-display { background: #f0fdf4; color: #064e3b; padding: 20px; border: 2px solid #059669; margin-bottom: 20px; position: relative; }
+
+#word-amount { font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.1rem; border-bottom: 1px solid #059669; padding: 10px 0; min-height: 50px; }
+
+#amount-box { position: absolute; right: 10px; bottom: 10px; border: 2px solid #064e3b; padding: 5px 15px; font-weight: bold; background: #fff; }
+
+#numpad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+button { background: #064e3b; color: white; border: 1px solid #10b981; padding: 15px; font-weight: bold; cursor: pointer; border-radius: 4px; }
+button:hover { background: #059669; }
+
+.clear { background: #991b1b; }
+.print { background: #1e40af; }

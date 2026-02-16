@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>El Pronóstico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="weather-ui">
+        <h2>EL PRONÓSTICO</h2>
+        <div id="display-box">
+            <p>Busca la región donde:</p>
+            <h1 id="target-weather">HACE SOL</h1>
+        </div>
+        <div id="map">
+            <button class="region" onclick="check('Hace sol', this)">☀️</button>
+            <button class="region" onclick="check('Llueve', this)">🌧️</button>
+            <button class="region" onclick="check('Nieva', this)">❄️</button>
+            <button class="region" onclick="check('Hace viento', this)">🌬️</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

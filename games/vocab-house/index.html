@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blueprint Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-ui">
+        <h2>CONSTRUYE LA CASA</h2>
+        <p>¿Dónde está: <strong id="target-room">el baño</strong>?</p>
+        <div id="blueprint">
+            <div class="room-slot" onclick="place('el baño', this)">1</div>
+            <div class="room-slot" onclick="place('la cocina', this)">2</div>
+            <div class="room-slot" onclick="place('el dormitorio', this)">3</div>
+            <div class="room-slot" onclick="place('el despacho', this)">4</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background-color: #334155; color: white; border: none;
+    padding: 10px 15px; border-radius: 8px; cursor: pointer; z-index: 100;
+}
+
+#game-ui { margin-top: 50px; }
+
+#weather-announcement {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #38bdf8;
+    text-transform: uppercase;
+}
+
+#game-screen {
+    position: relative;
+    width: 100vw;
+    height: 70vh;
+    background: #1e293b;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#player-character {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+}
+
+#shield {
+    position: absolute;
+    font-size: 3rem;
+    pointer-events: none;
+    transition: transform 0.1s;
+}
+
+.falling-item {
+    position: absolute;
+    font-size: 2rem;
+}
+
+.controls-hint { color: #94a3b8; margin-top: 10px; }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furniture Placer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h2>MUEBLES Y MÁS</h2>
+        <p>Drag the furniture to the room where it belongs!</p>
+        
+        <div id="rooms-grid">
+            <div class="room" id="r-dorm" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <span class="label">EL DORMITORIO</span>
+                <div class="icon">🛏️</div>
+            </div>
+            <div class="room" id="r-sala" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <span class="label">LA SALA</span>
+                <div class="icon">🛋️</div>
+            </div>
+            <div class="room" id="r-cocina" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <span class="label">LA COCINA</span>
+                <div class="icon">🍳</div>
+            </div>
+        </div>
+
+        <div id="furniture-bank">
+            <div class="item" id="f-cama" draggable="true" ondragstart="drag(event)" data-match="r-dorm">la cama</div>
+            <div class="item" id="f-sof" draggable="true" ondragstart="drag(event)" data-match="r-sala">el sofá</div>
+            <div class="item" id="f-est" draggable="true" ondragstart="drag(event)" data-match="r-cocina">la estufa</div>
+            <div class="item" id="f-mesa" draggable="true" ondragstart="drag(event)" data-match="r-cocina">la mesa</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

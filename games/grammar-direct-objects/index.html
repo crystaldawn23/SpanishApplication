@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conector de Pronombres</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <header>
+            <h1>CIRCUITO DE PRONOMBRES</h1>
+            <div class="score">Voltaje: <span id="score-val">0</span></div>
+        </header>
+
+        <div id="circuit-board">
+            <div class="wire input">
+                <p id="original-sentence">Tengo <span>la maleta</span>.</p>
+            </div>
+            
+            <div id="bridge">⚡</div>
+
+            <div class="wire output">
+                <p id="transformed-sentence"><span id="drop-zone">?</span> tengo.</p>
+            </div>
+        </div>
+
+        <div id="pronoun-chips">
+            <button class="chip" onclick="checkAnswer('lo')">LO</button>
+            <button class="chip" onclick="checkAnswer('la')">LA</button>
+            <button class="chip" onclick="checkAnswer('los')">LOS</button>
+            <button class="chip" onclick="checkAnswer('las')">LAS</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

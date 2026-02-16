@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personality Speed-Sort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="speed-container">
+        <div id="timer-bar"><div id="timer-fill"></div></div>
+        
+        <div id="word-display">
+            <h1 id="current-word">READY?</h1>
+        </div>
+
+        <div id="action-zone">
+            <button class="neg-btn" onclick="sort('negativo')">NEGATIVO ❌</button>
+            <button class="pos-btn" onclick="sort('positivo')">POSITIVO ✅</button>
+        </div>
+        
+        <div id="score-board">Correct: <span id="points">0</span></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

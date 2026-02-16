@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tener Expressions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-box">
+        <h2>EXPRESIONES CON TENER</h2>
+        <div id="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h1 id="expression">TENGO SED</h1>
+            <p>Drag the item that matches this feeling!</p>
+        </div>
+        <div id="item-bank">
+            <div class="item" id="water" draggable="true" ondragstart="drag(event)" data-match="TENGO SED">💧 Water</div>
+            <div class="item" id="burger" draggable="true" ondragstart="drag(event)" data-match="TENGO HAMBRE">🍔 Food</div>
+            <div class="item" id="jacket" draggable="true" ondragstart="drag(event)" data-match="TENGO FRÍO">🧥 Jacket</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

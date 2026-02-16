@@ -1,0 +1,5 @@
+body { background: #1a1a1a; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+#game-box { text-align: center; width: 400px; }
+#drop-zone { background: #333; border: 4px dashed #facc15; padding: 40px; border-radius: 20px; margin-bottom: 20px; }
+#item-bank { display: flex; justify-content: center; gap: 15px; }
+.item { background: #facc15; color: black; padding: 15px; border-radius: 10px; cursor: grab; font-weight: bold; }

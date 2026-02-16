@@ -1,0 +1,22 @@
+body { background: #1a2a2a; color: #33ff33; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+
+#game-ui { width: 400px; background: #2d5a27; border: 12px solid #555; border-radius: 40px; padding: 20px; box-shadow: inset 0 0 20px #000, 10px 10px 0 #111; }
+
+.lab-bezel { background: #3c3c3c; padding: 15px; border-radius: 20px; border: 4px inset #222; }
+
+.header { font-size: 0.7rem; text-align: center; color: #aaa; margin-bottom: 15px; }
+
+#display-screen { background: #001a00; border: 8px solid #222; border-radius: 10px; padding: 20px; position: relative; overflow: hidden; height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+.scanline { position: absolute; top: 0; width: 100%; height: 2px; background: rgba(51, 255, 51, 0.1); animation: moveScan 4s linear infinite; }
+@keyframes moveScan { from { top: 0; } to { top: 100%; } }
+
+#word-display { font-size: 2.5rem; margin: 0; letter-spacing: 2px; text-shadow: 0 0 10px #33ff33; }
+
+.controls-panel { margin-top: 20px; background: #444; padding: 15px; border-radius: 10px; color: #fff; }
+
+#options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+
+.part-btn { background: #fdf5e6; border: 4px outset #ccc; color: #333; padding: 10px; font-size: 1.8rem; font-weight: bold; cursor: pointer; transition: 0.1s; }
+
+.part-btn:active { border-style: inset; transform: scale(0.95); }

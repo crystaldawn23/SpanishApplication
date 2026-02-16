@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parts of Speech - Level 0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-ui">
+        <div class="stats">
+            <span>Score: <span id="score">0</span></span>
+            <button onclick="location.href='../../index.html'">Return to Map</button>
+        </div>
+
+        <div id="mail-room">
+            <h2>Sort the Word!</h2>
+            <div id="active-word-card">---</div>
+        </div>
+
+        <div id="bins-container">
+            <button class="bin" onclick="checkDrop('noun')">NOUN<br><small>(Person/Place/Thing)</small></button>
+            <button class="bin" onclick="checkDrop('verb')">VERB<br><small>(Action/State)</small></button>
+            <button class="bin" onclick="checkDrop('adj')">ADJECTIVE<br><small>(Description)</small></button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

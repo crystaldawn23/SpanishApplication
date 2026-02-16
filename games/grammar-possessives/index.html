@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Possessive Sorter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-wrap">
+        <h2>SORT THE GIFTS: MI vs. MIS</h2>
+        
+        <div id="drop-zones">
+            <div class="zone" id="singular-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h3>MI</h3>
+                <p>(Singular)</p>
+            </div>
+            <div class="zone" id="plural-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h3>MIS</h3>
+                <p>(Plural)</p>
+            </div>
+        </div>
+
+        <div id="item-bin">
+            <div class="gift" id="libro" draggable="true" ondragstart="drag(event)" data-type="singular">📖 el libro</div>
+            <div class="gift" id="gatos" draggable="true" ondragstart="drag(event)" data-type="plural">🐱 los gatos</div>
+            <div class="gift" id="mochila" draggable="true" ondragstart="drag(event)" data-type="singular">🎒 la mochila</div>
+            <div class="gift" id="lapices" draggable="true" ondragstart="drag(event)" data-type="plural">✏️ los lápices</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

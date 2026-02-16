@@ -1,0 +1,7 @@
+body { background: #0f172a; color: white; font-family: 'Courier New', Courier, monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+#console { background: #334155; padding: 30px; border-radius: 10px; border: 4px solid #94a3b8; text-align: center; width: 350px; }
+#screen { background: #000; color: #22c55e; padding: 20px; border-radius: 5px; margin-bottom: 20px; font-size: 1.2rem; }
+.toggle-bank { display: flex; gap: 10px; margin-bottom: 20px; }
+.toggle { background: #475569; color: white; border: none; padding: 10px; cursor: pointer; flex: 1; }
+.toggle.active { background: #f59e0b; color: black; }
+.verb-btn { width: 100%; padding: 15px; margin-top: 10px; background: #38bdf8; border: none; font-weight: bold; cursor: pointer; }
