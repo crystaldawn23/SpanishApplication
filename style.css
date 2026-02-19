@@ -1,110 +1,77 @@
-/* ROOT STYLES */
 body {
-    background-color: #0f172a; /* Deep dark blue/black */
-    color: #f8fafc;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a202c; /* Deep midnight blue - easier on the eyes */
+    color: #e2e8f0; /* Soft white/grey text */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    padding: 20px;
-    margin: 0;
 }
 
 #arcade-container {
-    max-width: 900px;
+    max-width: 1000px;
     width: 100%;
 }
 
 header {
     text-align: center;
+    border-bottom: 2px solid #2d3748;
     margin-bottom: 40px;
-    padding: 20px;
-    border-bottom: 3px solid #334155;
+    padding-bottom: 20px;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    color: #38bdf8; /* Bright arcade blue */
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    color: #63b3ed; /* Soft sky blue for the title */
+    letter-spacing: 2px;
 }
 
-header p {
-    color: #94a3b8;
-    font-style: italic;
-}
-
-/* UNIT BOXES */
 .unit-box {
-    background-color: #1e293b;
-    border-radius: 15px;
+    background-color: #2d3748; /* Slate grey box */
+    border: 1px solid #4a5568;
+    border-radius: 12px;
     padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    border: 1px solid #334155;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-    color: #f1f5f9;
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 20px;
-    border-left: 5px solid #38bdf8;
+    font-size: 1.1rem;
+    color: #a0aec0;
+    border-left: 4px solid #63b3ed;
     padding-left: 15px;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
 
-h2.locked {
-    border-left-color: #475569;
-    color: #64748b;
-}
-
-/* THE GRID SYSTEM */
 .button-grid {
     display: grid;
-    /* This creates as many columns as will fit, at least 200px wide each */
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 15px;
 }
 
-/* THE BUTTONS */
-button {
-    padding: 15px 10px;
-    font-size: 0.9rem;
-    font-weight: bold;
+.active-btn {
+    background-color: #4a5568; /* Slightly lighter slate */
+    color: #fff;
+    border: 1px solid #718096;
+    padding: 15px;
+    font-weight: 600;
     border-radius: 8px;
-    border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    text-transform: uppercase;
+    text-align: center;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     min-height: 60px;
 }
 
-/* Active Level Button */
-.active-btn {
-    background-color: #530672; /* Emerald Green */
-    color: white;
-    border-bottom: 4px solid #059669; /* Darker green "3D" edge */
-}
-
 .active-btn:hover {
-    background-color: #059669;
-    transform: translateY(-2px); /* Lifts up slightly on hover */
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    background-color: #63b3ed; /* Changes to blue on hover */
+    color: #1a202c;
+    border-color: #fff;
+    transform: translateY(-2px);
 }
 
 .active-btn:active {
-    transform: translateY(2px); /* Sinks down when clicked */
-    border-bottom-width: 0;
-}
-
-/* Locked/Soon Button */
-.locked-btn {
-    background-color: #334155;
-    color: #64748b;
-    cursor: not-allowed;
-    border-bottom: 4px solid #1e293b;
+    transform: translateY(1px);
 }

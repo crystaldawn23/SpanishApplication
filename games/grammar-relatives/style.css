@@ -1,0 +1,64 @@
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #333; color: #ff9800; border: 1px solid #ff9800;
+    padding: 10px; cursor: pointer;
+}
+
+#welder-container { margin-top: 60px; width: 700px; text-align: center; }
+
+#machine-head { font-size: 2rem; color: #ff9800; margin-bottom: 40px; text-shadow: 0 0 10px #ff9800; }
+
+#assembly-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.plate {
+    background: linear-gradient(145deg, #444, #222);
+    padding: 25px;
+    border: 2px solid #666;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    min-width: 200px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+#weld-spark {
+    width: 80px;
+    height: 80px;
+    background: #ff9800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000;
+    box-shadow: 0 0 20px #ff9800;
+}
+
+.weld-btn {
+    background: #333;
+    border: 2px solid #666;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.weld-btn:hover { border-color: #ff9800; color: #ff9800; }
+
+#inspector-log { margin-top: 30px; color: #888; height: 1.5rem; }

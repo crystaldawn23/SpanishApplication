@@ -1,0 +1,57 @@
+body {
+    background-color: #334155;
+    color: #f1f5f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #1e293b; color: #38bdf8; border: 1px solid #38bdf8;
+    padding: 10px; border-radius: 5px; cursor: pointer;
+}
+
+#workshop-container { margin-top: 50px; width: 600px; text-align: center; }
+
+#car-display {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 20px;
+    border: 5px solid #64748b;
+    margin-bottom: 30px;
+}
+
+#car-emoji { font-size: 5rem; margin-bottom: 20px; }
+
+#diagnostic-screen {
+    background: #000;
+    color: #22c55e;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid #22c55e;
+    text-transform: uppercase;
+}
+
+#parts-bin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.part-btn {
+    background: #475569;
+    border: none;
+    color: white;
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.part-btn:hover { background: #38bdf8; transform: translateY(-3px); }
+
+.stats { margin-top: 30px; font-weight: bold; }

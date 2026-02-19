@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Red Social: Recíprocos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <div id="phone-screen">
+            <div id="interaction-visual">
+                <span class="user-icon">👤</span> 
+                <span id="connection-line">⚡</span>
+                <span class="user-icon">👤</span>
+            </div>
+            <p id="scenario-desc">Marta y Luis (each other) / Escribir</p>
+            <h2 id="sentence-preview">Ellos ______ escriben.</h2>
+        </div>
+
+        <div id="choice-buttons">
+            <button class="choice-btn" onclick="check('nos')">NOS</button>
+            <button class="choice-btn" onclick="check('se')">SE</button>
+        </div>
+
+        <div id="feedback-log">Establece la conexión...</div>
+        <div class="stats">Conexiones exitosas: <span id="score">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

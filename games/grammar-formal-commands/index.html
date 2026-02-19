@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerente de la Vivienda: Mandatos Formales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <div id="tenant-panel">
+            <div id="tenant-icon">👤</div>
+            <p id="tenant-label">INQUILINO: SR. RAMÍREZ (Ud.)</p>
+        </div>
+
+        <div id="order-card">
+            <p>ACCIÓN: <span id="verb-action">LIMPIAR EL BALCÓN</span></p>
+            <h2 id="command-result">¡_______ el balcón!</h2>
+        </div>
+
+        <div id="input-zone">
+            <input type="text" id="user-command" placeholder="Escribe el mandato..." autocomplete="off">
+            <div id="accent-bar">
+                <button onclick="addChar('é')">é</button>
+                <button onclick="addChar('á')">á</button>
+                <button onclick="addChar('í')">í</button>
+            </div>
+        </div>
+
+        <div id="feedback-msg">Sea cortés con el inquilino.</div>
+        <div class="stats">Órdenes correctas: <span id="score">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

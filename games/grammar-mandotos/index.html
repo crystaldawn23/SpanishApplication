@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Interruptor de Mandatos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <div id="light-indicator" class="affirmative">
+            <span id="mode-text">¡SÍ!</span>
+        </div>
+
+        <div id="instruction-panel">
+            <p>VERBO: <span id="verb-root">HABLAR</span></p>
+            <h2 id="command-prompt">¡Habla!</h2>
+        </div>
+
+        <div id="logic-notes">
+            <p id="note-text">Affirmative: Use the 3rd person singular form.</p>
+        </div>
+
+        <div id="option-grid">
+            </div>
+
+        <div class="stats">Órdenes seguidas: <span id="score">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
