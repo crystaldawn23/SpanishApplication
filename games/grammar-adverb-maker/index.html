@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratorio de Adverbios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <div id="observation-desk">
+            <div id="medical-scene">🩺</div>
+            <p id="scenario-text">El doctor examina al paciente de una manera <b>lenta</b>.</p>
+        </div>
+
+        <div id="machine-interface">
+            <p>CONVIERTE EL ADJETIVO EN ADVERBIO:</p>
+            <div id="input-zone">
+                <input type="text" id="adverb-input" placeholder="Escribe el adverbio..." autocomplete="off">
+            </div>
+            <p id="hint-text">Pista: Femenino + "-mente"</p>
+        </div>
+
+        <div class="stats">Diagnósticos precisos: <span id="score">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Party Planner: ¿Qué? vs ¿Cuál?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <div id="guest-area">
+            <div id="guest-emoji">🎉</div>
+            <div id="speech-bubble">
+                <p id="question-text">¿_______ es tu regalo favorito?</p>
+            </div>
+        </div>
+
+        <div id="key-selection">
+            <button class="key-btn" onclick="checkAnswer('qué')">¿QUÉ?</button>
+            <button class="key-btn" onclick="checkAnswer('cuál')">¿CUÁL?</button>
+        </div>
+
+        <div id="logic-hint">Pista: Usa <b>cuál</b> antes de "es" para una selección.</div>
+        <div class="stats">Invitados contentos: <span id="score">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

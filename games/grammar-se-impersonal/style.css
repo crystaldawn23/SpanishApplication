@@ -1,0 +1,42 @@
+body {
+    background-color: #5aa4ee;
+    color: #334155;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #0f172a; color: rgb(255, 255, 255); border: none; padding: 10px; border-radius: 5px; cursor: pointer;
+}
+
+#game-container { margin-top: 50px; text-align: center; width: 700px; }
+
+#sign-preview {
+    background: white;
+    border: 10px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#clinic-logo { font-size: 3rem; margin-bottom: 15px; }
+
+#sign-text { font-size: 2.5rem; font-weight: bold; text-transform: uppercase; color: #1e293b; }
+#verb-slot, #object-slot { border-bottom: 3px solid #94a3b8; color: #3b82f6; }
+
+#task-description { background: #dbeafe; padding: 15px; border-radius: 8px; margin-bottom: 30px; font-weight: bold; color: #1e40af; }
+
+.btn-grid { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+
+.action-btn {
+    background: white; border: 2px solid #3b82f6; color: #3b82f6;
+    padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;
+}
+
+.action-btn:hover { background: #3b82f6; color: white; }
+
+.stats { margin-top: 30px; font-size: 1.2rem; }

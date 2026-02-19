@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Twin Portals: Ser vs Ir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <header>
+            <h1>PORTALES GEMELOS</h1>
+            <div class="score">Sincronización: <span id="score-val">0</span></div>
+        </header>
+
+        <div id="portal-area">
+            <div class="portal ir" onclick="checkChoice('ir')">
+                <div class="portal-core"></div>
+                <label>IR (Movimiento)</label>
+            </div>
+
+            <div id="sentence-pod">
+                <p id="current-phrase">Cargando...</p>
+            </div>
+
+            <div class="portal ser" onclick="checkChoice('ser')">
+                <div class="portal-core"></div>
+                <label>SER (Identidad)</label>
+            </div>
+        </div>
+        
+        <div class="hint">¿El verbo significa "I went" o "I was"? ¡Elige el portal!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

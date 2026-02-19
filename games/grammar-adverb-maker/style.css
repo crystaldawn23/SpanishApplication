@@ -1,0 +1,48 @@
+body {
+    background-color: #5fa6ec;
+    color: #334155;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #64748b; color: rgb(107, 172, 224); border: none; padding: 10px; border-radius: 5px; cursor: pointer;
+}
+
+#game-container { margin-top: 60px; width: 550px; text-align: center; }
+
+#observation-desk {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    border-left: 10px solid #3b82f6;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+#medical-scene { font-size: 4rem; margin-bottom: 10px; }
+
+#machine-interface {
+    background: #1e293b;
+    color: #38bdf8;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+#adverb-input {
+    width: 80%;
+    padding: 15px;
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: 3px solid #38bdf8;
+    background: transparent;
+    color: white;
+    text-align: center;
+    outline: none;
+    margin-top: 10px;
+}
+
+#hint-text { font-size: 0.8rem; margin-top: 15px; color: #94a3b8; }

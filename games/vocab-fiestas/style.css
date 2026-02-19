@@ -1,0 +1,48 @@
+body {
+    background-color: #2d142c;
+    color: #feb72b;
+    font-family: 'Arial Black', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #510a32; color: white; border: 2px solid #feb72b;
+    padding: 10px; border-radius: 5px; cursor: pointer; z-index: 100;
+}
+
+#party-banner {
+    background: #801336;
+    padding: 20px;
+    border-bottom: 5px dashed #feb72b;
+    margin-bottom: 20px;
+}
+
+#party-type { font-size: 2.5rem; margin: 0; text-transform: uppercase; }
+
+#party-entrance {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #2d142c;
+}
+
+#doorway {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+}
+
+.guest-item {
+    position: absolute;
+    font-size: 3.5rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+    user-select: none;
+}
+
+.guest-item:hover { transform: scale(1.2); }

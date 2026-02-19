@@ -1,0 +1,58 @@
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #334155; color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer;
+}
+
+#game-container { margin-top: 50px; width: 600px; text-align: center; }
+
+#scale-visual {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 50px;
+    border: 4px solid #fbbf24;
+    margin-bottom: 30px;
+}
+
+.side { width: 120px; }
+#person-icon, #object-icon { font-size: 3rem; }
+#person-label, #object-label { font-size: 0.9rem; margin-top: 10px; color: #94a3b8; }
+
+#verb-pod {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fbbf24;
+}
+
+#pronoun-slot, #verb-slot { border-bottom: 2px solid #fbbf24; padding: 0 5px; }
+
+.control-group { margin-bottom: 20px; }
+.control-group p { font-size: 0.8rem; color: #fbbf24; margin-bottom: 10px; }
+
+.btn-grid {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.choice-btn {
+    background: #334155;
+    color: white;
+    border: 1px solid #fbbf24;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.choice-btn.selected { background: #fbbf24; color: #0f172a; }

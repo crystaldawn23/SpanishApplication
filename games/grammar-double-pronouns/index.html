@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pinball de Pronombres</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ VOLVER AL HUB</button>
+
+    <div id="pinball-machine">
+        <div id="score-board">PUNTOS: <span id="score-val">0</span></div>
+        
+        <div id="mission-card">
+            <p>REEMPLAZA:</p>
+            <h3 id="target-sentence">Doy <span>el pan</span> a <span>Mario</span>.</h3>
+        </div>
+
+        <div id="slots-container">
+            <div class="slot" id="idop-slot">IDOP</div>
+            <div class="slot" id="dop-slot">DOP</div>
+            <div class="verb-fixed">doy</div>
+        </div>
+
+        <div id="flipper-area">
+            <div class="flipper-group">
+                <p>Indirecto (¿A quién?)</p>
+                <div id="idop-btns"></div>
+            </div>
+            <div class="flipper-group">
+                <p>Directo (¿Qué?)</p>
+                <div id="dop-btns"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

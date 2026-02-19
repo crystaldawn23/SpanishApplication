@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Balanza de Gustar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <header>
+            <h1>EL EQUILIBRIO DE GUSTAR</h1>
+            <div class="score">Balance: <span id="score-val">0</span></div>
+        </header>
+
+        <div id="scale-visual">
+            <div class="side person-side">
+                <div id="person-icon">👤</div>
+                <div id="person-label">A nosotros</div>
+            </div>
+            
+            <div id="verb-pod">
+                <span id="pronoun-slot">___</span>
+                <span id="verb-slot">_______</span>
+            </div>
+
+            <div class="side object-side">
+                <div id="object-icon">🍎</div>
+                <div id="object-label">las manzanas</div>
+            </div>
+        </div>
+
+        <div id="control-area">
+            <div class="control-group">
+                <p>PRONOMBRE</p>
+                <div id="pronoun-btns" class="btn-grid"></div>
+            </div>
+            <div class="control-group">
+                <p>VERBO</p>
+                <div id="verb-btns" class="btn-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

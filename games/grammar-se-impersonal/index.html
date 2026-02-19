@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Letreros de la Clínica: Se Impersonal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <div id="sign-preview">
+            <div id="clinic-logo">🏥</div>
+            <div id="sign-text">
+                <span class="static">SE</span> 
+                <span id="verb-slot">_______</span> 
+                <span id="object-slot">_______</span>
+            </div>
+        </div>
+
+        <div id="task-description">Tarea: Crea un letrero que diga "Smoking is prohibited"</div>
+
+        <div id="construction-zone">
+            <div class="control-group">
+                <p>VERBO (¿Singular o Plural?)</p>
+                <div id="verb-btns" class="btn-grid"></div>
+            </div>
+            <div class="control-group">
+                <p>VOCABULARIO MÉDICO</p>
+                <div id="vocab-btns" class="btn-grid"></div>
+            </div>
+        </div>
+
+        <div class="stats">Letreros instalados: <span id="score">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

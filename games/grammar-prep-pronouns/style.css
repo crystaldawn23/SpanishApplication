@@ -1,0 +1,52 @@
+body {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #c0392b; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;
+}
+
+#game-container {
+    margin-top: 60px;
+    width: 500px;
+    text-align: center;
+}
+
+#gift-tag {
+    background: #f1c40f;
+    color: #2c3e50;
+    padding: 30px;
+    border-radius: 10px;
+    border: 4px dashed #e67e22;
+    margin-bottom: 30px;
+}
+
+#prep-text { font-weight: bold; margin-bottom: 10px; }
+#person-cue { font-size: 2rem; font-weight: bold; }
+
+.label-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    margin: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.label-btn:hover { background: #2980b9; transform: scale(1.05); }
+
+#con-toggle-area {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #34495e;
+}

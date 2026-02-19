@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cronología: Pretérito vs Imperfecto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+
+    <div id="game-container">
+        <div id="timeline-display">
+            <div id="event-card">
+                <p id="context-hint">Habitual Action</p>
+                <h2 id="sentence-text">Cada día, yo ____ (ir) al médico.</h2>
+            </div>
+        </div>
+
+        <div id="choice-area">
+            <button class="choice-btn pret" onclick="checkChoice('pret')">PRETÉRITO</button>
+            <button class="choice-btn impf" onclick="checkChoice('impf')">IMPERFECTO</button>
+        </div>
+
+        <div id="logic-explanation"></div>
+        <div class="stats">Eventos corregidos: <span id="score">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

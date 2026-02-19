@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mensajería: Por vs Para</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='../../index.html'">⬅ HUB</button>
+    <div id="game-container">
+        <div id="mail-carrier">📬</div>
+        <div id="sentence-display">Camino ___ el parque.</div>
+        
+        <div id="gates">
+            <button class="gate por" onclick="checkChoice('por')">POR</button>
+            <button class="gate para" onclick="checkChoice('para')">PARA</button>
+        </div>
+        <div class="score">Mensajes enviados: <span id="score-val">0</span></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+body {
+    background-color: #1b262c;
+    color: #bbe1fa;
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.back-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: #0f4c75; color: white; border: none; padding: 10px; cursor: pointer;
+}
+
+#booth-container {
+    margin-top: 60px;
+    width: 600px;
+    text-align: center;
+}
+
+#signal-monitor {
+    background: #000;
+    border: 3px solid #3282b8;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px #3282b855;
+}
+
+.label { font-size: 0.8rem; color: #3282b8; letter-spacing: 2px; }
+#spanish-sentence { font-size: 1.8rem; color: #fff; margin-top: 10px; }
+
+#translation-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.trans-btn {
+    background: #0f4c75;
+    border: 2px solid #3282b8;
+    color: white;
+    padding: 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.trans-btn:hover { background: #3282b8; color: #bbe1fa; }
+
+#log-display { margin-top: 20px; font-size: 0.9rem; color: #3282b8; }
