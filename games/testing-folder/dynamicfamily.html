@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>La Familia - Smart Match</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+        body { font-family: 'Fredoka', sans-serif; background: #2c3e50; color: white; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        
+        #game-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+            max-width: 900px; margin-top: 20px;
+        }
+
+        .profile-card {
+            background: #34495e; border: 4px solid #7f8c8d; border-radius: 20px;
+            width: 150px; padding: 15px; display: flex; flex-direction: column;
+            align-items: center; transition: all 0.3s;
+        }
+
+        .profile-card img {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: #ecf0f1; object-fit: cover; margin-bottom: 10px;
+        }
+
+        .drop-zone {
+            width: 130px; height: 40px; background: rgba(0,0,0,0.3);
+            border: 2px dashed #bdc3c7; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
+        }
+
+        .sticker {
+            background: #f1c40f; color: #2c3e50; padding: 10px 20px;
+            border-radius: 50px; cursor: grab; font-weight: bold;
+            box-shadow: 0 4px 0 #d4af37; margin: 5px;
+        }
+
+        .matched { background: #2ecc71 !important; border: none !important; color: white; }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quién es quién?</h1>
+    <div id="game-container"></div>
+    <div id="word-bank" style="margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center;"></div>
+
+    <script>
+        // Mapping words to specific images so they ALWAYS match
+        const vocabData = [
+            { word: "abuelo", img: "https://cdn-icons-png.flaticon.com/512/1995/1995535.png" },
+            { word: "abuela", img: "https://cdn-icons-png.flaticon.com/512/1995/1995537.png" },
+            { word: "niño", img: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png" },
+            { word: "niña", img: "https://cdn-icons-png.flaticon.com/512/1995/1995582.png" },
+            { word: "padre", img: "https://cdn-icons-png.flaticon.com/512/1995/1995555.png" },
+            { word: "madre", img: "https://cdn-icons-png.flaticon.com/512/1995/1995563.png" }
+            // You can add all 30 here with specific links
+        ];
+
+        function startRound() {
+            const container = document.getElementById('game-container');
+            const bank = document.getElementById('word-bank');
+            container.innerHTML = '';
+            bank.innerHTML = '';
+
+            // Pick 4-5 random items
+            let roundItems = [...vocabData].sort(() => 0.5 - Math.random()).slice(0, 5);
+
+            roundItems.forEach(item => {
+                // Create the Card with the specific Image
+                const card = document.createElement('div');
+                card.className = 'profile-card';
+                card.innerHTML = `
+                    <img src="${item.img}">
+                    <div class="drop-zone" data-match="${item.word}">Arrastra aquí</div>
+                `;
+                container.appendChild(card);
+
+                // Create the corresponding Sticker
+                const s = document.createElement('div');
+                s.className = 'sticker';
+                s.innerText = item.word;
+                s.draggable = true;
+                s.id = item.word;
+                s.ondragstart = (e) => e.dataTransfer.setData('text', e.target.id);
+                bank.appendChild(s);
+            });
+
+            setupDropZones();
+        }
+
+        function setupDropZones() {
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                zone.ondragover = (e) => e.preventDefault();
+                zone.ondrop = (e) => {
+                    const id = e.dataTransfer.getData('text');
+                    if (id === zone.dataset.match) {
+                        zone.classList.add('matched');
+                        zone.innerText = id.toUpperCase();
+                        document.getElementById(id).style.opacity = "0.3";
+                        document.getElementById(id).draggable = false;
+                    }
+                };
+            });
+        }
+
+        startRound();
+    </script>
+</body>
+</html>

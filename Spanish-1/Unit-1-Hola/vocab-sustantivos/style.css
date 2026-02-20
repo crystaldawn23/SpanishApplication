@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: #5da6ce;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+#game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+}
+
+.profile-card {
+    background: #34495e;
+    border-radius: 20px;
+    width: 160px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.emoji-avatar {
+    font-size: 50px;
+    background: rgba(255,255,255,0.1);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.english-hint {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.drop-zone {
+    height: 40px;
+    border: 2px dashed #7f8c8d;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#word-bank {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+
+
+.sticker:hover {
+    background: #55efc4; /* Brighter mint on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #008f72;
+}
+
+.sticker:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #008f72;
+}
+
+/* The Success Highlight for Unit 1 */
+.correct-match {
+    background: #f1c40f !important; /* Gold success highlight */
+    border: 2px solid white !important;
+    color: #2d3436;
+    transform: scale(1.05);
+}
+
+/* This makes the scoreboard look like a professional HUD */
+#scoreboard {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #f1c40f;
+    margin: 15px 0;
+    color: #f1c40f;
+    font-weight: bold;
+}
+
+#score-val {
+    color: #fff;
+    font-size: 1.2rem;
+}

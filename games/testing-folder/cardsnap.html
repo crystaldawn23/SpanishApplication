@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { background: #f0f2f5; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; height: 100vh; justify-content: center; }
+        #container { display: flex; gap: 50px; align-items: center; }
+        .bin { width: 200px; height: 250px; border: 4px dashed #bdc3c7; border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #7f8c8d; font-weight: bold; }
+        .bin.over { border-color: #3498db; background: rgba(52, 152, 219, 0.1); }
+        #card-stack { width: 180px; height: 240px; position: relative; }
+        .card { 
+            width: 100%; height: 100%; background: white; border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: flex; align-items: center;
+            justify-content: center; font-size: 24px; font-weight: bold; 
+            cursor: grab; border: 1px solid #ddd; position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sort the Items</h2>
+    <div id="container">
+        <div class="bin" id="HOUSE" ondragover="event.preventDefault()" ondrop="drop(event)">🏠 HOUSE</div>
+        <div id="card-stack">
+            <div class="card" id="c1" draggable="true" ondragstart="drag(event)" data-type="HOUSE">Bed</div>
+        </div>
+        <div class="bin" id="OFFICE" ondragover="event.preventDefault()" ondrop="drop(event)">💼 OFFICE</div>
+    </div>
+
+    <script>
+        function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+        function drop(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const el = document.getElementById(data);
+            if (el.dataset.type === ev.target.id) {
+                ev.target.style.background = "#2ecc71";
+                el.remove();
+                setTimeout(() => ev.target.style.background = "", 500);
+            } else {
+                alert("Wrong place!");
+            }
+        }
+    </script>
+</body>
+</html>

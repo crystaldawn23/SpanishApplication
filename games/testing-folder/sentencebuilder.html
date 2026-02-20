@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { background: #f8f9fa; font-family: 'Quicksand', sans-serif; display: flex; flex-direction: column; align-items: center; padding-top: 50px; }
+        #drop-area { display: flex; gap: 15px; margin: 40px; min-height: 60px; padding: 20px; background: #fff; border-radius: 15px; border: 3px dashed #dee2e6; width: 80%; justify-content: center; }
+        .tile { padding: 15px 25px; background: #4361ee; color: white; border-radius: 12px; cursor: grab; font-weight: bold; box-shadow: 0 4px #3046af; user-select: none; }
+        .tile:active { transform: translateY(2px); box-shadow: none; }
+        #bank { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .slot { width: 120px; height: 50px; border-bottom: 3px solid #343a40; }
+    </style>
+</head>
+<body>
+    <h2>Build the sentence: "The cat is big"</h2>
+    <div id="drop-area" ondragover="event.preventDefault()" ondrop="drop(event)">
+        </div>
+    <div id="bank">
+        <div class="tile" draggable="true" ondragstart="drag(event)" id="The">The</div>
+        <div class="tile" draggable="true" ondragstart="drag(event)" id="cat">cat</div>
+        <div class="tile" draggable="true" ondragstart="drag(event)" id="is">is</div>
+        <div class="tile" draggable="true" ondragstart="drag(event)" id="big">big</div>
+    </div>
+
+    <script>
+        function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+        function drop(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+</html>

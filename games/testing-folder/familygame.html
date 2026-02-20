@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>La Familia - Polished Sample</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: #2d3436; /* Dark background to make the game pop */
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100vh; margin: 0;
+        }
+
+        #game-title { color: white; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* The Game Board */
+        #game-stage {
+            width: 800px; height: 500px;
+            background: url('https://images.pexels.com/photos/2253879/pexels-photo-2253879.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+            border: 8px solid white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        /* The Stickers */
+        .sticker {
+            background: #f1c40f; color: #2d3436;
+            padding: 12px 25px; border-radius: 50px;
+            font-weight: 600; cursor: grab;
+            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .sticker:active { transform: scale(0.9); }
+
+        /* The Hotspots (Drop Zones) */
+        .target {
+            position: absolute; width: 120px; height: 120px;
+            border-radius: 50%; border: 4px dashed rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: bold;
+        }
+
+        /* Positions for the People in the Photo */
+        #target-1 { top: 15%; left: 35%; } /* Grandpa */
+        #target-2 { top: 35%; left: 10%; } /* Father */
+        #target-3 { top: 35%; left: 65%; } /* Mother */
+
+        .success {
+            background: #2ecc71 !important;
+            border: 4px solid white !important;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        #word-bank {
+            margin-top: 30px; display: flex; gap: 15px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px; border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="game-title">¿Quién es quién?</h1>
+
+    <div id="game-stage">
+        <div class="target" id="target-1" data-match="abuelo">?</div>
+        <div class="target" id="target-2" data-match="padre">?</div>
+        <div class="target" id="target-3" data-match="madre">?</div>
+    </div>
+
+    <div id="word-bank">
+        <div class="sticker" draggable="true" id="abuelo">El Abuelo</div>
+        <div class="sticker" draggable="true" id="padre">El Padre</div>
+        <div class="sticker" draggable="true" id="madre">La Madre</div>
+    </div>
+
+    <script>
+        const stickers = document.querySelectorAll('.sticker');
+        const targets = document.querySelectorAll('.target');
+
+        stickers.forEach(s => {
+            s.ondragstart = (e) => e.dataTransfer.setData('text', e.target.id);
+        });
+
+        targets.forEach(t => {
+            t.ondragover = (e) => e.preventDefault();
+            t.ondrop = (e) => {
+                const id = e.dataTransfer.getData('text');
+                if (id === t.dataset.match) {
+                    t.classList.add('success');
+                    t.innerText = "✅";
+                    document.getElementById(id).style.opacity = "0.2";
+                    document.getElementById(id).draggable = false;
+                }
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { background: #1a1a2e; color: white; font-family: sans-serif; text-align: center; }
+        #letter-circle { display: flex; justify-content: center; gap: 15px; margin-top: 50px; }
+        .letter-btn { width: 60px; height: 60px; border-radius: 50%; border: none; background: #e94560; color: white; font-size: 24px; font-weight: bold; cursor: pointer; box-shadow: 0 5px #a0283d; }
+        .letter-btn:active { transform: translateY(3px); box-shadow: none; }
+        #display-word { font-size: 48px; letter-spacing: 10px; margin: 30px; min-height: 60px; color: #0f3460; background: white; border-radius: 10px; display: inline-block; padding: 0 20px; }
+    </style>
+</head>
+<body>
+    <h2>Spell the Word: 🍎</h2>
+    <div id="display-word"></div>
+    <div id="letter-circle">
+        <button class="letter-btn" onclick="addLetter('A')">A</button>
+        <button class="letter-btn" onclick="addLetter('E')">E</button>
+        <button class="letter-btn" onclick="addLetter('L')">L</button>
+        <button class="letter-btn" onclick="addLetter('P')">P</button>
+        <button class="letter-btn" onclick="addLetter('P')">P</button>
+    </div>
+
+    <script>
+        let current = "";
+        function addLetter(l) {
+            current += l;
+            document.getElementById('display-word').innerText = current;
+            if (current === "APPLE") alert("¡Muy bien!");
+        }
+    </script>
+</body>
+</html>

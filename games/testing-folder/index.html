@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorteador de Vocabulario</title>
+    <style>
+        body { font-family: sans-serif; background: #2c3e50; color: white; text-align: center; overflow: hidden; }
+        #game-area { width: 100vw; height: 80vh; position: relative; background: #34495e; border-bottom: 5px solid #e74c3c; }
+        .bin { position: absolute; bottom: 0; width: 45%; height: 100px; background: #f1c40f; color: #2c3e50; line-height: 100px; font-weight: bold; font-size: 24px; border-radius: 10px 10px 0 0; }
+        #bin-left { left: 2%; }
+        #bin-right { right: 2%; }
+        .falling-word { position: absolute; padding: 10px 20px; background: white; color: black; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Clasifica el Vocabulario</h1>
+    <div id="game-area">
+        <div id="bin-left" class="bin">FAMILIA</div>
+        <div id="bin-right" class="bin">AMIGOS / OTROS</div>
+    </div>
+
+    <script>
+        const family = ["abuelo", "hermano", "madre", "hijo", "tío", "primo", "cuñado", "suegro", "yerno", "nuera"];
+        const others = ["amigo", "gente", "muchacho", "niño", "novio", "persona"];
+        
+        function spawnWord() {
+            const isFamily = Math.random() > 0.5;
+            const wordText = isFamily ? family[Math.floor(Math.random()*family.length)] : others[Math.floor(Math.random()*others.length)];
+            
+            const el = document.createElement('div');
+            el.className = 'falling-word';
+            el.innerText = wordText;
+            el.style.left = Math.random() * 80 + 10 + '%';
+            el.style.top = '0px';
+            document.getElementById('game-area').appendChild(el);
+
+            let pos = 0;
+            const fall = setInterval(() => {
+                pos += 2;
+                el.style.top = pos + 'px';
+                if (pos > window.innerHeight * 0.7) {
+                    clearInterval(fall);
+                    el.remove();
+                }
+            }, 20);
+
+            el.onclick = () => {
+                // Simplified: Clicking it automatically sorts it to test the logic
+                el.style.transition = "0.3s";
+                el.style.left = isFamily ? "10%" : "80%";
+                el.style.top = "90%";
+                setTimeout(() => el.remove(), 300);
+            };
+        }
+
+        setInterval(spawnWord, 2000);
+    </script>
+</body>
+</html>
