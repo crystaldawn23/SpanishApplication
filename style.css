@@ -76,3 +76,78 @@ h2 { color: #a0aec0; font-size: 1.1rem; border-left: 4px solid #63b3ed; padding-
     transform: scale(1.05);
 }
 .active-btn:hover { background-color: #63b3ed; color: #1a202c; }
+.refined-btn {
+    background: #00a859; /* Archer Green */
+    color: white;
+    padding: 18px 32px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    
+    /* 3D Depth in Dark Archer Green */
+    box-shadow: 0 6px 0 #007a41; 
+    
+    transition: all 0.1s ease;
+    display: inline-block;
+    margin: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.refined-btn:hover {
+    background: #00cf6e; /* Brighter Archer Green on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #007a41;
+}
+
+.refined-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #007a41;
+}
+/* Sticky Navigation */
+.level-nav {
+    position: sticky;
+    top: 0;
+    background: #1b262c;
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+    border-bottom: 3px solid #00a859; /* Archer Green Line */
+}
+
+.level-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-family: 'Fredoka', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.level-nav a:hover {
+    color: #00cf6e;
+}
+
+/* Level Banners */
+.course-level {
+    padding-top: 60px; /* Prevents nav from covering header when jumping */
+    margin-bottom: 40px;
+}
+
+.level-banner {
+    background: #00a859; /* Archer Green */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Ensure the smooth scrolling works */
+html {
+    scroll-behavior: smooth;
+}

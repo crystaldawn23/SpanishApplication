@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: #2d3436;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+#game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+}
+
+.profile-card {
+    background: #34495e;
+    border-radius: 20px;
+    width: 160px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.emoji-avatar {
+    font-size: 50px;
+    background: rgba(255,255,255,0.1);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.english-hint {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.drop-zone {
+    height: 40px;
+    border: 2px dashed #7f8c8d;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#word-bank {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.sticker {
+    background: #f1c40f;
+    color: #2d3436;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: grab;
+}
+
+.correct-match {
+    background: #00b894 !important;
+    border: none !important;
+    color: white;
+}
+/* This makes the scoreboard look like a professional HUD */
+#scoreboard {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #f1c40f;
+    margin: 15px 0;
+    color: #f1c40f;
+    font-weight: bold;
+}
+
+#score-val {
+    color: #fff;
+    font-size: 1.2rem;
+}
