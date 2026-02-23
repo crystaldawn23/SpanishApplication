@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Lab: Level Up Edition</title>
+    <style>
+        :root { --bg: #1b262c; --archer-green: #00a859; --danger: #e63946; --blue: #3282b8; --text: #bbe1fa; --wall: #536162; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        #game-ui { text-align: center; margin-bottom: 15px; }
+        canvas { background: #0f4c75; border: 4px solid var(--blue); border-radius: 4px; }
+        .target-box { font-size: 1.5rem; font-weight: bold; background: #0f4c75; padding: 10px 20px; border-radius: 8px; border: 2px solid var(--archer-green); min-width: 250px; }
+        .stats { margin-top: 10px; display: flex; gap: 20px; font-size: 1rem; }
+        .level-banner { color: #f9d342; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="game-ui">
+        <div class="target-box" id="prompt">Cargando...</div>
+        <div class="stats">
+            <div>Length: <span id="length-display">1</span></div>
+            <div class="level-banner" id="level-display">Level: 1 (Open Field)</div>
+        </div>
+    </div>
+
+    <canvas id="snakeGame" width="400" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("snakeGame");
+        const ctx = canvas.getContext("2d");
+        const promptEl = document.getElementById("prompt");
+        const lengthEl = document.getElementById("length-display");
+        const levelEl = document.getElementById("level-display");
+
+        const grid = 20;
+        let count = 0;
+        let score = 0;
+        let snake = { x: 200, y: 200, dx: grid, dy: 0, cells: [], maxCells: 1 };
+        let foodItems = [];
+        let obstacles = [];
+        
+        // Simple list for testing - focused on 'SER' and endings
+        const verbData = [
+            { q: "YO (SER)", a: "SOY", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
+            { q: "TÚ (SER)", a: "ERES", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
+            { q: "ÉL (SER)", a: "ES", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
+            { q: "NOSOTROS (SER)", a: "SOMOS", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
+            { q: "ELLOS (SER)", a: "SON", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] }
+        ];
+
+        function initLevel() {
+            const data = verbData[Math.floor(Math.random() * verbData.length)];
+            promptEl.innerText = data.q;
+            foodItems = [];
+            
+            data.opts.forEach(opt => {
+                let pos = getValidPos();
+                foodItems.push({ x: pos.x, y: pos.y, text: opt, isCorrect: opt === data.a });
+            });
+        }
+
+        function getValidPos() {
+            let pos;
+            let overlapping = true;
+            while(overlapping) {
+                pos = { x: Math.floor(Math.random() * 19) * grid, y: Math.floor(Math.random() * 19) * grid };
+                overlapping = obstacles.some(o => o.x === pos.x && o.y === pos.y);
+            }
+            return pos;
+        }
+
+        function addObstacles() {
+            levelEl.innerText = "Level: 2 (Obstacle Course!)";
+            levelEl.style.color = "#e63946";
+            // Add a cross pattern of walls in the middle
+            for(let i = 4; i < 16; i++) {
+                if(i < 8 || i > 11) {
+                    obstacles.push({x: i * grid, y: 10 * grid});
+                    obstacles.push({x: 10 * grid, y: i * grid});
+                }
+            }
+        }
+
+        function loop() {
+            requestAnimationFrame(loop);
+            if (++count < 10) return; 
+            count = 0;
+
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+
+            snake.x += snake.dx;
+            snake.y += snake.dy;
+
+            // Death Logic: Walls or Obstacles
+            const hitObstacle = obstacles.some(o => o.x === snake.x && o.y === snake.y);
+            if (snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height || hitObstacle) {
+                gameOver("¡CHOCASTE!");
+                return;
+            }
+
+            snake.cells.unshift({x: snake.x, y: snake.y});
+            if (snake.cells.length > snake.maxCells) snake.cells.pop();
+
+            // Draw Obstacles
+            ctx.fillStyle = "#536162";
+            obstacles.forEach(o => ctx.fillRect(o.x, o.y, grid-1, grid-1));
+
+            // Draw Food
+            foodItems.forEach(food => {
+                ctx.fillStyle = "#3282b8";
+                ctx.fillRect(food.x, food.y, grid-1, grid-1);
+                ctx.fillStyle = "white";
+                ctx.font = "bold 10px Arial";
+                ctx.textAlign = "center";
+                ctx.fillText(food.text, food.x + grid/2, food.y + grid/1.5);
+            });
+
+            // Draw Snake
+            snake.cells.forEach((cell, index) => {
+                ctx.fillStyle = (index === 0) ? "#00a859" : "#bbe1fa";
+                ctx.fillRect(cell.x, cell.y, grid-1, grid-1);
+
+                foodItems.forEach(food => {
+                    if (cell.x === food.x && cell.y === food.y) {
+                        if (food.isCorrect) {
+                            score++;
+                            snake.maxCells++;
+                            lengthEl.innerText = snake.maxCells;
+                            if (score === 10) addObstacles();
+                            initLevel();
+                        } else {
+                            gameOver(`INCORRECTO: Era ${promptEl.innerText.split(' ')[0]}...`);
+                        }
+                    }
+                });
+            });
+        }
+
+        function gameOver(msg) {
+            alert(msg);
+            score = 0;
+            obstacles = [];
+            snake = { x: 200, y: 200, dx: grid, dy: 0, cells: [], maxCells: 1 };
+            levelEl.innerText = "Level: 1 (Open Field)";
+            levelEl.style.color = "#f9d342";
+            lengthEl.innerText = "1";
+            initLevel();
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft' && snake.dx === 0) { snake.dx = -grid; snake.dy = 0; }
+            else if (e.key === 'ArrowUp' && snake.dy === 0) { snake.dy = -grid; snake.dx = 0; }
+            else if (e.key === 'ArrowRight' && snake.dx === 0) { snake.dx = grid; snake.dy = 0; }
+            else if (e.key === 'ArrowDown' && snake.dy === 0) { snake.dy = grid; snake.dx = 0; }
+        });
+
+        initLevel();
+        loop();
+    </script>
+</body>
+</html>

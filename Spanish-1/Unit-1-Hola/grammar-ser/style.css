@@ -1,0 +1,77 @@
+:root {
+    --bg: #1b262c;
+    --card-bg: #222e35;
+    --archer-green: #00a859;
+    --danger: #e63946;
+    --text: #bbe1fa;
+    --neutral-gray: #455a64;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Fredoka', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    height: 100vh; margin: 0; overflow: hidden;
+}
+
+#game-ui { text-align: center; margin-bottom: 20px; width: 600px; }
+
+.target-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 3px solid var(--archer-green);
+    box-shadow: 0 6px 0px rgba(0,0,0,0.3);
+}
+
+/* Mid-game feedback area */
+.message-area {
+    height: 30px;
+    margin: 10px 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--archer-green);
+}
+.penalty-text { color: var(--danger); }
+
+h1 { margin: 0; font-size: 2rem; color: white; }
+.sub-hint { font-size: 1.1rem; color: #f9d342; margin-top: 5px; }
+
+canvas {
+    background: #0d1b24;
+    border: 4px solid var(--neutral-gray);
+    border-radius: 8px;
+}
+
+.stats {
+    display: flex; justify-content: space-between;
+    width: 600px; margin-top: 15px; font-weight: 600; font-size: 1.2rem;
+}
+
+/* Overlay Styles */
+.overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(27, 38, 44, 0.9);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px; z-index: 20;
+}
+
+#overlay-content {
+    background: var(--card-bg);
+    padding: 30px; border-radius: 15px;
+    border: 3px solid var(--archer-green);
+    text-align: center;
+}
+
+#overlay-title { color: var(--archer-green); margin: 0 0 10px 0; }
+.hidden { display: none; }
+
+#continue-btn {
+    background: var(--archer-green); color: white;
+    border: none; padding: 12px 25px; border-radius: 8px;
+    font-family: 'Fredoka', sans-serif; font-weight: 600;
+    cursor: pointer; margin-top: 15px;
+}

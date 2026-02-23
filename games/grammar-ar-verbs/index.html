@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>-AR Verb Arena</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Arcade | Conjugation Commando</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="conjugation-machine">
-        <div class="header">VERB CONJUGATOR</div>
-        
-        <div id="display-screen">
-            <div id="subject-box">YO</div>
-            <div id="verb-stem">HABL<span id="ending-placeholder">__</span></div>
-        </div>
+    <div class="game-container">
+        <header class="hud">
+            <div class="stat">Verb: <span id="current-verb">---</span></div>
+            <div class="stat">Score: <span id="score">0</span></div>
+        </header>
 
-        <div class="label">SELECT THE ENDING:</div>
-        <div id="options-grid">
-            </div>
+        <main class="game-stage">
+            <div id="subject-display" class="subject-card">Yo</div>
+            <div class="options-grid" id="options-container">
+                </div>
+        </main>
 
-        <div id="progress-bar"><div id="progress-fill"></div></div>
+        <footer class="controls">
+            <p>Select the correct ending to complete the conjugation!</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Arcade | Snake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-ui">
+        <div class="target-card">
+            <h1 id="prompt">LOADING...</h1>
+            <div id="hint" class="sub-hint">Level 1</div>
+        </div>
+        
+        <div id="msg-box" class="message-area">Get Ready!</div>
+
+        <div class="stats">
+            <div id="level-text" class="level-tag">Level: 1</div>
+            <div class="counter-box">Progress: <span id="progress">0/15</span></div>
+        </div>
+    </div>
+
+    <div id="canvas-container" style="position: relative;">
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+        
+        <div id="overlay" class="overlay">
+            <div id="overlay-content">
+                <h2 id="overlay-title">WELCOME!</h2>
+                <p id="overlay-text">Use arrow keys to collect the correct form of SER.</p>
+                <button id="continue-btn">START (Enter)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
