@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Fredoka', sans-serif;
-    background: #1b262c;
+    background: #2d3436;
     color: white;
     display: flex;
     flex-direction: column;
@@ -62,27 +62,20 @@ body {
     justify-content: center;
 }
 
-
-
-.sticker:hover {
-    background: #55efc4; /* Brighter mint on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 7px 0 #008f72;
-}
-
-.sticker:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 #008f72;
-}
-
-/* The Success Highlight for Unit 1 */
-.correct-match {
-    background: #f1c40f !important; /* Gold success highlight */
-    border: 2px solid white !important;
+.sticker {
+    background: #f1c40f;
     color: #2d3436;
-    transform: scale(1.05);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: grab;
 }
 
+.correct-match {
+    background: #00b894 !important;
+    border: none !important;
+    color: white;
+}
 /* This makes the scoreboard look like a professional HUD */
 #scoreboard {
     background: rgba(255, 255, 255, 0.1);

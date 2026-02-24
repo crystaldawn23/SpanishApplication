@@ -12,7 +12,7 @@ body {
 
 header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #2d3748; padding-bottom: 20px; }
 
-header h1 { color: #63b3ed; letter-spacing: 2px; }
+header h1 { color: #bdc3c7; letter-spacing: 2px; }
 
 .unit-box {
     background-color: #2d3748;
@@ -22,7 +22,7 @@ header h1 { color: #63b3ed; letter-spacing: 2px; }
     border: 1px solid #4a5568;
 }
 
-h2 { color: #a0aec0; font-size: 1.1rem; border-left: 4px solid #63b3ed; padding-left: 15px; margin-bottom: 20px; }
+h2 { color: #a0aec0; font-size: 1.1rem; border-left: 4px solid #bdc3c7; padding-left: 15px; margin-bottom: 20px; }
 
 .button-grid {
     display: grid;
@@ -75,7 +75,7 @@ h2 { color: #a0aec0; font-size: 1.1rem; border-left: 4px solid #63b3ed; padding-
     color: white;
     transform: scale(1.05);
 }
-.active-btn:hover { background-color: #63b3ed; color: #1a202c; }
+.active-btn:hover { background-color: #bdc3c7; color: #1a202c; }
 .refined-btn {
     background: #00a859; /* Archer Green */
     color: white;
