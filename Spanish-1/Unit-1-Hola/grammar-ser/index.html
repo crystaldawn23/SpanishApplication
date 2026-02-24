@@ -9,30 +9,30 @@
 </head>
 <body>
 
-    <div id="game-ui">
-        <div class="target-card">
-            <h1 id="prompt">LOADING...</h1>
-            <div id="hint" class="sub-hint">Level 1</div>
-        </div>
-        
-        <div id="msg-box" class="message-area">Get Ready!</div>
-
-        <div class="stats">
-            <div id="level-text" class="level-tag">Level: 1</div>
-            <div class="counter-box">Progress: <span id="progress">0/15</span></div>
-        </div>
-    </div>
-
-    <div id="canvas-container" style="position: relative;">
-        <canvas id="gameCanvas" width="600" height="600"></canvas>
-        
-        <div id="overlay" class="overlay">
-            <div id="overlay-content">
-                <h2 id="overlay-title">WELCOME!</h2>
-                <p id="overlay-text">Use arrow keys to collect the correct form of SER.</p>
-                <button id="continue-btn">START (Enter)</button>
+    <div id="game-container">
+        <div id="game-header">
+            <div id="prompt-box">
+                <span id="prompt">READY?</span>
+                <span id="hint">Level 1</span>
+            </div>
+            <div id="stats-bar">
+                <span id="level-text">LEVEL 1</span>
+                <span id="progress">0/15</span>
             </div>
         </div>
+
+        <div id="canvas-relative" style="position: relative;">
+            <canvas id="gameCanvas" width="600" height="400"></canvas>
+            
+            <div id="overlay" class="overlay">
+                <div id="overlay-content">
+                    <h2 id="overlay-title">WELCOME!</h2>
+                    <p id="overlay-text">Collect the correct forms of SER.</p>
+                    <button id="continue-btn">START (Enter)</button>
+                </div>
+            </div>
+        </div>
+        <div id="msg-box">Press Start or Enter to begin</div>
     </div>
 
     <script src="script.js"></script>

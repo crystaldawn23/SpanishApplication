@@ -1,160 +1,148 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
-const grid = 30;
+const grid = 20;
 
+let audioCtx;
+function initAudio() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+
+function playSound(type) {
+    if (!audioCtx) return;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    const now = audioCtx.currentTime;
+
+    if (type === 'success') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(400, now);
+        osc.frequency.exponentialRampToValueAtTime(800, now + 0.1);
+        gain.gain.setValueAtTime(0.1, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+        osc.start(now); osc.stop(now + 0.1);
+    } else if (type === 'error') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(150, now);
+        osc.frequency.linearRampToValueAtTime(50, now + 0.2);
+        gain.gain.setValueAtTime(0.1, now);
+        gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+        osc.start(now); osc.stop(now + 0.2);
+    }
+}
+
+// Updated Verb Data: Removed Vosotros, Split Ustedes/Ellos
 const verbData = [
     { eng: "I am", span: "YO", a: "SOY", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
     { eng: "You are (fam.)", span: "TÚ", a: "ERES", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
+    { eng: "You are (form.)", span: "USTED", a: "ES", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
     { eng: "He/She is", span: "ÉL/ELLA", a: "ES", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
     { eng: "We are", span: "NOSOTROS", a: "SOMOS", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
-    { eng: "They are", span: "ELLOS", a: "SON", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] }
+    { eng: "You all are", span: "USTEDES", a: "SON", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] },
+    { eng: "They are", span: "ELLOS/ELLAS", a: "SON", opts: ["SOY", "ERES", "ES", "SOMOS", "SON"] }
 ];
 
-let score = 0, goal = 15, level = 1, count = 0, isPaused = true;
-let snake = { x: 300, y: 300, dx: grid, dy: 0, cells: [], maxCells: 2 };
+let score = 0, goal = 15, isPaused = true, count = 0;
+let snake = { x: 300, y: 200, dx: grid, dy: 0, cells: [], maxCells: 2 };
 let foodItems = [], obstacles = [];
 
 const overlay = document.getElementById("overlay");
-const overlayTitle = document.getElementById("overlay-title");
-const overlayText = document.getElementById("overlay-text");
 const continueBtn = document.getElementById("continue-btn");
-const msgBox = document.getElementById("msg-box");
 
-function showOverlay(title, text, btnText = "CONTINUE (Enter)", isDanger = false) {
+function showOverlay(title, text, btn = "CONTINUE (Enter)") {
     isPaused = true;
-    overlayTitle.innerText = title;
-    overlayText.innerText = text;
-    continueBtn.innerText = btnText;
-    overlayTitle.style.color = isDanger ? "#e63946" : "#00a859";
+    document.getElementById("overlay-title").innerText = title;
+    document.getElementById("overlay-text").innerText = text;
+    continueBtn.innerText = btn;
     overlay.classList.remove("hidden");
 }
 
-continueBtn.onclick = () => {
+function startGame() {
+    initAudio();
     overlay.classList.add("hidden");
     isPaused = false;
-};
-
-function getUniquePos() {
-    let pos, isOccupied;
-    const minDistance = grid * 2;
-    do {
-        isOccupied = false;
-        pos = { x: Math.floor(Math.random() * 18 + 1) * grid, y: Math.floor(Math.random() * 18 + 1) * grid };
-        if (snake.cells.some(c => c.x === pos.x && c.y === pos.y)) isOccupied = true;
-        if (obstacles.some(o => o.x === pos.x && o.y === pos.y)) isOccupied = true;
-        if (foodItems.some(f => {
-            const dist = Math.sqrt(Math.pow(f.x - pos.x, 2) + Math.pow(f.y - pos.y, 2));
-            return dist < minDistance;
-        })) isOccupied = true;
-    } while (isOccupied);
-    return pos;
 }
+
+continueBtn.onclick = startGame;
 
 function initRound() {
     const data = verbData[Math.floor(Math.random() * verbData.length)];
-    const prompt = document.getElementById("prompt");
-    const hint = document.getElementById("hint");
-
-    if (score < 5) {
-        prompt.innerText = `${data.eng.toUpperCase()} (${data.span})`;
-        hint.innerText = "Level 1: English + Spanish Support";
-    } else if (score < 10) {
-        prompt.innerText = data.eng.toUpperCase();
-        hint.innerText = "Level 2: English Only";
-    } else {
-        prompt.innerText = data.eng.toUpperCase();
-        hint.innerText = "Level 3: Obstacles Added!";
-    }
-
+    document.getElementById("prompt").innerText = (score < 5) ? `${data.eng.toUpperCase()} (${data.span})` : data.eng.toUpperCase();
+    document.getElementById("hint").innerText = (score < 5) ? "Level 1" : (score < 10 ? "Level 2" : "Level 3");
+    
     foodItems = [];
     data.opts.forEach(opt => {
-        const pos = getUniquePos();
+        let pos;
+        do {
+            pos = { x: Math.floor(Math.random() * 28 + 1) * grid, y: Math.floor(Math.random() * 18 + 1) * grid };
+        } while (foodItems.some(f => Math.abs(f.x - pos.x) < grid*3));
         foodItems.push({ x: pos.x, y: pos.y, text: opt, isCorrect: opt === data.a });
     });
 }
 
-function handlePenalty(reason) {
+function handlePenalty(msg) {
+    playSound('error');
     score--;
-    if (snake.maxCells > 1) snake.maxCells--;
-    if (snake.cells.length > snake.maxCells) snake.cells.pop();
-    document.getElementById("progress").innerText = `${Math.max(0, score)}/${goal}`;
-    
-    msgBox.innerText = `Incorrect! -1 Point`;
-    msgBox.classList.add("penalty-text");
-
+    if (snake.maxCells > 2) { snake.maxCells--; snake.cells.pop(); }
+    document.getElementById("progress").innerText = `${Math.max(0, score)}/15`;
     if (score < 0) {
-        showOverlay("GAME OVER", "You ran out of segments! Try again.", "RESTART (Enter)", true);
-        resetGame();
-    } else {
-        if (score < 10) obstacles = [];
-        if (score < 5) level = 1;
-        document.getElementById("level-text").innerText = `Level: ${score < 5 ? 1 : (score < 10 ? 2 : 3)}`;
-        showOverlay("OUCH!", reason, "TRY AGAIN (Enter)", true);
-        initRound();
-        snake.x = 300; snake.y = 300; snake.cells = [];
-    }
-}
-
-function resetGame() {
-    score = 0; level = 1; obstacles = [];
-    snake = { x: 300, y: 300, dx: grid, dy: 0, cells: [], maxCells: 2 };
-    document.getElementById("progress").innerText = `0/${goal}`;
-    document.getElementById("level-text").innerText = "Level: 1";
+        showOverlay("GAME OVER", "Out of energy!", "RESTART");
+        score = 0; obstacles = []; snake.maxCells = 2;
+    } else { showOverlay("OUCH!", msg); }
+    snake.x = 300; snake.y = 200; snake.cells = [];
     initRound();
 }
 
 function loop() {
     requestAnimationFrame(loop);
-    if (isPaused || ++count < 8) return;
+    if (isPaused || ++count < 7) return;
     count = 0;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.clearRect(0,0,canvas.width,canvas.height);
     snake.x += snake.dx;
     snake.y += snake.dy;
 
-    const outOfBounds = snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height;
-    const hitWall = obstacles.some(o => o.x === snake.x && o.y === snake.y);
-    const hitSelf = snake.cells.some((c, i) => i !== 0 && c.x === snake.x && c.y === snake.y);
-
-    if (outOfBounds) { handlePenalty("You hit the wall!"); return; }
-    if (hitWall) { handlePenalty("You hit an obstacle!"); return; }
-    if (hitSelf) { handlePenalty("You bit your tail!"); return; }
+    if (snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height || 
+        obstacles.some(o => o.x === snake.x && o.y === snake.y)) {
+        handlePenalty("You hit the wall!"); return;
+    }
 
     snake.cells.unshift({x: snake.x, y: snake.y});
     if (snake.cells.length > snake.maxCells) snake.cells.pop();
 
     ctx.fillStyle = "#455a64";
-    obstacles.forEach(o => ctx.fillRect(o.x, o.y, grid-1, grid-1));
+    obstacles.forEach(o => { ctx.beginPath(); ctx.roundRect(o.x, o.y, grid-1, grid-1, 4); ctx.fill(); });
 
     foodItems.forEach(f => {
-        ctx.fillStyle = "#222e35";
-        ctx.fillRect(f.x, f.y, grid-1, grid-1);
-        ctx.fillStyle = "white"; ctx.font = "bold 14px sans-serif"; ctx.textAlign = "center";
-        ctx.fillText(f.text, f.x + grid/2, f.y + grid/1.5);
+        ctx.fillStyle = "#161b22"; ctx.beginPath(); ctx.roundRect(f.x, f.y, grid-1, grid-1, 4); ctx.fill();
+        ctx.fillStyle = "#fff"; ctx.font = "bold 9px sans-serif"; ctx.textAlign = "center";
+        ctx.textBaseline = "middle"; ctx.fillText(f.text, f.x + grid/2, f.y + grid/2);
     });
 
-    snake.cells.forEach((cell, index) => {
-        ctx.fillStyle = (index === 0) ? "#00a859" : "#bbe1fa";
-        ctx.fillRect(cell.x, cell.y, grid-1, grid-1);
-        if (index === 0) {
+    snake.cells.forEach((cell, i) => {
+        const size = (i === 0) ? grid - 2 : grid - 8; 
+        const offset = (i === 0) ? 1 : 4;
+        const radius = (i === 0) ? 8 : 4;
+        ctx.fillStyle = (i === 0) ? "#00a859" : "#9e9e9e";
+        ctx.beginPath(); ctx.roundRect(cell.x + offset, cell.y + offset, size, size, radius); ctx.fill();
+
+        if (i === 0) {
             foodItems.forEach(f => {
                 if (cell.x === f.x && cell.y === f.y) {
                     if (f.isCorrect) {
+                        playSound('success');
                         score++; snake.maxCells++;
-                        msgBox.innerText = "Correct!";
-                        msgBox.classList.remove("penalty-text");
-                        document.getElementById("progress").innerText = `${score}/${goal}`;
-                        
-                        if (score === 5) { level = 2; showOverlay("LEVEL UP!", "Now prompts are English only."); }
-                        if (score === 10) { level = 3; obstacles = [{x: 4 * grid, y: 4 * grid}, {x: 15 * grid, y: 4 * grid}, {x: 4 * grid, y: 15 * grid}, {x: 15 * grid, y: 15 * grid}]; showOverlay("LEVEL UP!", "Watch out for the new obstacles!"); }
-                        
-                        if (score >= 15) { 
-                            showOverlay("VICTORY!", "You mastered the verb SER.", "PLAY AGAIN (Enter)"); 
-                            resetGame(); 
-                        } else { 
-                            initRound(); 
+                        document.getElementById("progress").innerText = `${score}/15`;
+                        if (score === 5) showOverlay("LEVEL UP!", "English only now!");
+                        if (score === 10) {
+                            obstacles = [{x:100,y:100},{x:500,y:100},{x:100,y:300},{x:500,y:300}];
+                            showOverlay("LEVEL UP!", "Obstacles added!");
                         }
-                    } else { handlePenalty("Wrong conjugation!"); }
+                        if (score >= 15) { showOverlay("VICTORY!", "SER Mastered!"); score = 0; snake.maxCells = 2; }
+                        initRound();
+                    } else { handlePenalty("Wrong form!"); }
                 }
             });
         }
@@ -162,13 +150,8 @@ function loop() {
 }
 
 document.addEventListener('keydown', e => {
-    if (isPaused && e.key === "Enter") {
-        overlay.classList.add("hidden");
-        isPaused = false;
-        return;
-    }
+    if (isPaused && e.key === "Enter") { startGame(); return; }
     if (isPaused) return;
-
     if (e.key === 'ArrowLeft' && snake.dx === 0) { snake.dx = -grid; snake.dy = 0; }
     else if (e.key === 'ArrowUp' && snake.dy === 0) { snake.dy = -grid; snake.dx = 0; }
     else if (e.key === 'ArrowRight' && snake.dx === 0) { snake.dx = grid; snake.dy = 0; }
