@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Photo Detective</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 3: Adjectivos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="detective-box">
-        <div id="clue-folder">
-            <h3>ORDEN DE BÚSQUEDA:</h3>
-            <p id="description-text">Busco a una persona con... <br><strong>pelo castaño y ojos verdes.</strong></p>
+
+    <header>
+        <h1>¡Vocabulario de adjectivos!</h1>
+        <div id="scoreboard">
+    Palabras completadas: <span id="score-val">0</span> / 32
+</div>
+    </header>
+
+    <div id="game-container">
         </div>
 
-        <div id="carousel">
-            <button class="nav-btn" onclick="changeCard(-1)">❮</button>
-            <div id="card-display">
-                <div id="character-emoji">👤</div>
-                <div id="character-features">???</div>
-            </div>
-            <button class="nav-btn" onclick="changeCard(1)">❯</button>
+    <div id="word-bank">
         </div>
 
-        <button id="select-btn" onclick="verifyMatch()">IDENTIFY TARGET</button>
-    </div>
     <script src="script.js"></script>
 </body>
 </html>

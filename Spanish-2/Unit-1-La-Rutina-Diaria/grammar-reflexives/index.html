@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PRESENT TENSE: REGULAR VERBS</title>
+    <title>Verb Crank | Reflexive Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,7 +10,7 @@
     <div id="game-container">
         <div id="victory-overlay" class="hidden">
             <h2>¡MISIÓN CUMPLIDA!</h2>
-            <p>You have mastered regular -AR -ER and -IR verbs.</p>
+            <p>You have mastered reflexive verbs.</p>
             <button onclick="location.reload()">PLAY AGAIN</button>
         </div>
 
@@ -26,25 +26,24 @@
 
         <div id="crank-board">
             <div class="crank-row">
-                <button class="arrow" onclick="change(0, -1)">▲</button>
-                <button class="arrow" onclick="change(1, -1)">▲</button>
-                <button class="arrow" onclick="change(2, -1)">▲</button>
-            </div>
+                <button class="arrow" onclick="change(0, -1)">▲</button> <button class="arrow" onclick="change(1, -1)">▲</button> <button class="arrow" onclick="change(2, -1)">▲</button> <button class="arrow" onclick="change(3, -1)">▲</button> </div>
 
             <div class="display-row">
                 <div class="slot" id="slot-0">YO</div>
-                <div class="slot" id="slot-1">---</div>
-                <div class="slot" id="slot-2">-</div>
+                <div class="slot" id="slot-1">ME</div>
+                <div class="slot" id="slot-2">---</div>
+                <div class="slot" id="slot-3">-</div>
             </div>
 
             <div class="crank-row">
                 <button class="arrow" onclick="change(0, 1)">▼</button>
                 <button class="arrow" onclick="change(1, 1)">▼</button>
                 <button class="arrow" onclick="change(2, 1)">▼</button>
+                <button class="arrow" onclick="change(3, 1)">▼</button>
             </div>
         </div>
 
-        <div id="msg-box">Match the subject, stem, and ending!</div>
+        <div id="msg-box">Match the pronoun, stem, and ending!</div>
         
         <div id="progress-container">
             <div id="progress-bar"></div>

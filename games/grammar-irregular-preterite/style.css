@@ -1,8 +1,0 @@
-body { background: #0a0a0a; color: #0f0; font-family: 'Courier New', monospace; display: flex; justify-content: center; }
-.back-btn { position: absolute; top: 20px; left: 20px; background: #222; color: #0f0; border: 1px solid #0f0; padding: 10px; cursor: pointer; }
-#game-container { margin-top: 80px; width: 500px; text-align: center; }
-#terminal { border: 2px solid #0f0; padding: 40px; background: #000; box-shadow: 0 0 15px #0f0; }
-#header { font-weight: bold; margin-bottom: 20px; border-bottom: 1px solid #0f0; padding-bottom: 10px; }
-#display { font-size: 1.5rem; text-align: left; margin-bottom: 20px; }
-#user-input { background: transparent; border: none; border-bottom: 2px solid #0f0; color: #fff; font-size: 2rem; width: 100%; text-align: center; outline: none; }
-#feedback { margin-top: 20px; font-size: 0.8rem; color: #0a0; }

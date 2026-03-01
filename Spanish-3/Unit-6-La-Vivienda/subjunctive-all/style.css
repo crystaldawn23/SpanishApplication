@@ -1,13 +1,20 @@
 :root {
     --bg: #0d1117;
     --card-bg: #161b22;
-    --archer-green: white;
-    --accent: purple;
+    --archer-green: #00a859;
+    --accent: #f9d342;
     --danger: #ff4d4d;
     --border: #30363d;
     --text: #f0f6fc;
 }
-
+.simple-header {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--accent); /* This will use your white or accent color */
+    margin-bottom: 20px;
+    font-weight: 500;
+    opacity: 0.9;
+}
 body {
     background-color: var(--bg);
     color: var(--text);

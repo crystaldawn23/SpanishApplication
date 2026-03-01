@@ -1,0 +1,171 @@
+:root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --archer-green: #f472b6; /* Pink for Reflexives */
+    --accent: #ffffff;       /* Level 2 Mastery White */
+    --danger: #ff4d4d;
+    --border: #30363d;
+    --text: #f0f6fc;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 500px; /* Widened slightly for 4 columns */
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.level-2-glow {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 20px var(--accent) !important;
+}
+
+#target-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: rgba(0,0,0,0.2);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+#text-stack {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#target {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--archer-green);
+}
+
+#level-indicator {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+#score-counter {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* THE CRANK BOARD */
+#crank-board {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.crank-row, .display-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Spacing between columns */
+}
+
+.slot {
+    width: 85px; /* Narrowed to fit 4 wheels */
+    height: 60px;
+    background: #000;
+    border: 2px solid var(--archer-green);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem; /* Slightly smaller font for long words */
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.arrow {
+    width: 85px;
+    background: var(--border);
+    border: none;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.arrow:hover {
+    background: var(--archer-green);
+}
+
+#msg-box {
+    height: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* PROGRESS BAR */
+#progress-container {
+    width: 100%;
+    height: 12px;
+    background: #000;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--archer-green);
+    transition: width 0.3s ease;
+}
+
+#check-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--archer-green);
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#check-btn:active {
+    transform: scale(0.98);
+}
+
+/* VICTORY OVERLAY */
+#victory-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13, 17, 23, 0.95);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.hidden { display: none !important; }
